@@ -1,6 +1,6 @@
-# knowledgenet-assistant README
+# knowledgexpert-vscode README
 
-This is the README for your extension "knowledgenet-assistant". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "knowledgexpert-vscode". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 

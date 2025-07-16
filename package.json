@@ -1,7 +1,7 @@
 {
-  "name": "knowledgenet-ai-assistant",
-  "displayName": "knowledgenet-ai-assistant",
-  "description": "An AI assistant for Knowledgenet",
+  "name": "knowledgexpert-vscode",
+  "displayName": "knowledgexpert-vscode",
+  "description": "An AI assistant for knowledgexpert",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.102.0"
@@ -16,21 +16,21 @@
   "contributes": {
     "chatParticipants": [
       {
-        "id": "knowledgenet-ai-assistant.chat",
+        "id": "knowledgexpert-vscode.chat",
         "name": "knowledgexpert",
-        "fullName": "Knowledgenet AI Assistant",
-        "description": "Knowledgenet AI Assistant helps you build Knowledgenet rules",
+        "fullName": "knowledgexpert AI Assistant",
+        "description": "knowledgexpert AI Assistant helps you build Knowledgenet rules",
         "isSticky": true
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "Knowledgenet AI Assistant",
+      "title": "knowledgexpert AI Assistant",
       "properties": {
-        "knowledgenetAiAssistant.apiUrl": {
+        "knowledgexpertAiAssistant.apiUrl": {
           "type": "string",
           "default": "http://localhost:9000/ask",
-          "description": "The URL of the Knowledgenet AI Assistant backend API."
+          "description": "The URL of the knowledgexpert AI Assistant backend API."
         }
       }
     }

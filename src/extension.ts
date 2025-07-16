@@ -10,7 +10,7 @@ async function handleChatRequest(request: any, context: any, stream: any, token:
     const userMessage = request.prompt;
     try {
         // Use VS Code configuration for the API URL
-        const apiUrl = vscode.workspace.getConfiguration().get<string>('knowledgenetAiAssistant.apiUrl', 'http://localhost:9000/ask');
+        const apiUrl = vscode.workspace.getConfiguration().get<string>('knowledgexpertAiAssistant.apiUrl', 'http://localhost:9000/ask');
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -23,7 +23,7 @@ async function handleChatRequest(request: any, context: any, stream: any, token:
         );
     } catch (err) {
         stream.markdown(
-            'Error contacting Knowledgenet AI Assistant: ' + (err instanceof Error ? err.message : String(err))
+            'Error contacting knowledgexpert AI Assistant: ' + (err instanceof Error ? err.message : String(err))
         );
     }
 }
@@ -33,9 +33,9 @@ async function handleChatRequest(request: any, context: any, stream: any, token:
 export function activate(context: vscode.ExtensionContext) {
     // Register chat participant (new API)
     if ((vscode as any).chat && typeof (vscode as any).chat.createChatParticipant === 'function') {
-        console.log('Activating Knowledgenet AI Assistant Chat extension...');
+        console.log('Activating knowledgexpert AI Assistant Chat extension...');
         const participantDisposable = (vscode as any).chat.createChatParticipant(
-            'knowledgenet-ai-assistant.chat', // Must match id in package.json
+            'knowledgexpert-vscode.chat', // Must match id in package.json
             handleChatRequest
         );
         context.subscriptions.push(participantDisposable);
