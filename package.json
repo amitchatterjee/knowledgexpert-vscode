@@ -7,11 +7,11 @@
     "vscode": "^1.102.0"
   },
   "categories": [
-    "Other"
+    "AI"
   ],
   "main": "./out/extension.js",
   "activationEvents": [
-    "*"
+    "onChatParticipant:knowledgexpert-vscode.chat"
   ],
   "contributes": {
     "chatParticipants": [

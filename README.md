@@ -1,35 +1,53 @@
-# knowledgexpert-vscode README
+# Knowledgexpert README
 
-This is the README for your extension "knowledgexpert-vscode". After writing up a brief description, we recommend including the following sections.
+The purpose of this project is to provide a Visual Studio Code Copilot chat extension that enhances productivity by offering advice on how to implement a Knowledgenet rules application and how to develop rules.
 
-## Features
+Knowledgenet is a Python-based rules engine designed to help developers and business users automate complex decision-making. At its core, Knowledgenet uses an adaptation of the RETE algorithm—an efficient, explainable pattern-matching algorithm widely used in expert systems and AI. The engine processes input facts and applies user-authored rules to derive new facts or decisions, supporting both forward and backward chaining. Knowledgenet is ideal for applications where business logic is complex, evolving, and requires transparency, such as compliance, eligibility, or workflow automation. Rules can be authored in Python and organized into rulesets and repositories, making the system flexible and maintainable as requirements grow.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
 ## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. Visual Studio Code (version 1.85.0 or later).
+1. Github Copilot extension installed.
+1. Github Copilot Chat installed.
+1. Extension(s) for Python development environment installed.
+1. Knowledgexpert backend API service running.
 
 ## Extension Settings
+This extension contributes the following VS Code setting:
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+* `knowledgexpertAiAssistant.apiUrl`: The URL of the knowledgexpert AI Assistant backend API. You can change this to point to your own backend service if needed. Default: `http://localhost:9000/ask`
 
-For example:
+## Development
+1. Install nodejs-npm - Use the operating system's installer like dnf, yum, apt, etc.
+1. Install Yeoman and generator-code:
+    ```bash
+    sudo npm install -g yo generator-code
+    ```
+1. Clone this project.
+    ```bash
+    cd $GIT_HOME
+    git clone git@github.com:amitchatterjee/knowledgexpert-vscode.git
+    ```
+1. Install additional packages:
+    ```bash
+    cd $GIT_HOME/knowledgexpert-vscode
+    npm install node-fetch
+    ```
+1. Compile the project.
+    ```bash
+    cd $GIT_HOME/knowledgexpert-vscode
+    npm run compile
+    ```
+1. Launch the extension from Visual Code by executing src/extension.ts (F5) 
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+Note: Create a vscode extension scaffolding. This is how this project archetype was created:
+```bash
+cd $GIT_HOME/
+yo code
+```
 
 ## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+I am sure there are quite a few.
 
 ## Release Notes
 
@@ -46,26 +64,4 @@ Fixed issue #.
 ### 1.1.0
 
 Added features X, Y, and Z.
-
 ---
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
