@@ -10,7 +10,7 @@ async function handleChatRequest(request: any, context: any, stream: any, token:
     const userMessage = request.prompt;
     try {
         // Use VS Code configuration for the API URL
-        const apiUrl = vscode.workspace.getConfiguration().get<string>('knowledgexpertAiAssistant.apiUrl', 'http://localhost:9000/ask');
+        const apiUrl = vscode.workspace.getConfiguration().get<string>('knowledgexpertAiAssistant.apiUrl', 'http://localhost:9001/ask');
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

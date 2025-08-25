@@ -29,7 +29,7 @@
       "properties": {
         "knowledgexpertAiAssistant.apiUrl": {
           "type": "string",
-          "default": "http://localhost:9000/ask",
+          "default": "http://localhost:9001/ask",
           "description": "The URL of the knowledgexpert AI Assistant backend API."
         }
       }

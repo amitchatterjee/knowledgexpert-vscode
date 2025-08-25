@@ -15,7 +15,7 @@ Knowledgenet is a Python-based rules engine designed to help developers and busi
 ## Extension Settings
 This extension contributes the following VS Code setting:
 
-* `knowledgexpertAiAssistant.apiUrl`: The URL of the knowledgexpert AI Assistant backend API. You can change this to point to your own backend service if needed. Default: `http://localhost:9000/ask`
+* `knowledgexpertAiAssistant.apiUrl`: The URL of the knowledgexpert AI Assistant backend API. You can change this to point to your own backend service if needed. Default: `http://localhost:9001/ask`
 
 ## Development
 1. Install nodejs-npm - Use the operating system's installer like dnf, yum, apt, etc.
