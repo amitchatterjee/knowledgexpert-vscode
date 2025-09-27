@@ -21,6 +21,13 @@
         "fullName": "knowledgexpert AI Assistant",
         "description": "knowledgexpert AI Assistant helps you build Knowledgenet rules",
         "isSticky": true
+      },
+      {
+        "id": "deepxpert-vscode.chat",
+        "name": "deepxpert",
+        "fullName": "deepxpert AI Assistant",
+        "description": "deepxpert AI Assistant helps you build Knowledgenet rules",
+        "isSticky": true
       }
     ],
     "configuration": {
@@ -29,8 +36,13 @@
       "properties": {
         "knowledgexpertAiAssistant.apiUrl": {
           "type": "string",
-          "default": "http://localhost:9001/ask",
+          "default": "http://localhost:9001/ask/knowledgexpert",
           "description": "The URL of the knowledgexpert AI Assistant backend API."
+        },
+        "deepxpertAiAssistant.apiUrl": {
+          "type": "string",
+          "default": "http://localhost:9001/ask/deepxpert",
+          "description": "The URL of the deepxpert AI Assistant backend API."
         }
       }
     }

@@ -2,15 +2,14 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// Request handler for chat participant
-async function handleChatRequest(request: any, context: any, stream: any, token: any) {
+async function handleKnowledgexpertChatRequest(request: any, context: any, stream: any, token: any) {
     //console.log('Received chat request:', request);
     const fetch = (await import('node-fetch')).default;
     const sessionId = vscode.env.machineId;
     const userMessage = request.prompt;
     try {
         // Use VS Code configuration for the API URL
-        const apiUrl = vscode.workspace.getConfiguration().get<string>('knowledgexpertAiAssistant.apiUrl', 'http://localhost:9001/ask');
+        const apiUrl = vscode.workspace.getConfiguration().get<string>('knowledgexpertAiAssistant.apiUrl', 'http://localhost:9001/ask/knowledgexpert');
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -28,17 +27,49 @@ async function handleChatRequest(request: any, context: any, stream: any, token:
     }
 }
 
+async function handleDeepxpertChatRequest(request: any, context: any, stream: any, token: any) {
+    //console.log('Received chat request:', request);
+    const fetch = (await import('node-fetch')).default;
+    const sessionId = vscode.env.machineId;
+    const userMessage = request.prompt;
+    try {
+        // Use VS Code configuration for the API URL
+        const apiUrl = vscode.workspace.getConfiguration().get<string>('deepxpertAiAssistant.apiUrl', 'http://localhost:9001/ask/deepxpert');
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ query: userMessage, session_id: sessionId })
+        });
+        const data = await response.json() as { result: unknown };
+        // Send response to chat stream
+        stream.markdown(
+            typeof data.result === 'string' ? data.result : JSON.stringify(data.result)
+        );
+    } catch (err) {
+        stream.markdown(
+            'Error contacting deepxpert AI Assistant: ' + (err instanceof Error ? err.message : String(err))
+        );
+    }
+}
+
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
     // Register chat participant (new API)
     if ((vscode as any).chat && typeof (vscode as any).chat.createChatParticipant === 'function') {
         console.log('Activating knowledgexpert AI Assistant Chat extension...');
-        const participantDisposable = (vscode as any).chat.createChatParticipant(
+        const knowledgexpertParticipantDisposable = (vscode as any).chat.createChatParticipant(
             'knowledgexpert-vscode.chat', // Must match id in package.json
-            handleChatRequest
+            handleKnowledgexpertChatRequest
         );
-        context.subscriptions.push(participantDisposable);
+        context.subscriptions.push(knowledgexpertParticipantDisposable);
+
+        console.log('Activating deepxpert AI Assistant Chat extension...');
+        const deepxpertParticipantDisposable = (vscode as any).chat.createChatParticipant(
+            "deepxpert-vscode.chat", // Must match id in package.json
+            handleDeepxpertChatRequest
+        );
+        context.subscriptions.push(deepxpertParticipantDisposable);
     }
 }
 
