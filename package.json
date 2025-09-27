@@ -16,33 +16,33 @@
   "contributes": {
     "chatParticipants": [
       {
-        "id": "knowledgexpert-vscode.chat",
-        "name": "knowledgexpert",
-        "fullName": "knowledgexpert AI Assistant",
-        "description": "knowledgexpert AI Assistant helps you build Knowledgenet rules",
+        "id": "knowledgeXpert-vscode.chat",
+        "name": "knowledgeXpert",
+        "fullName": "knowledgeXpert AI Assistant",
+        "description": "knowledgeXpert AI Assistant helps you build Knowledgenet rules",
         "isSticky": true
       },
       {
-        "id": "deepxpert-vscode.chat",
-        "name": "deepxpert",
-        "fullName": "deepxpert AI Assistant",
-        "description": "deepxpert AI Assistant helps you build Knowledgenet rules",
+        "id": "deepXpert-vscode.chat",
+        "name": "deepXpert",
+        "fullName": "deepXpert AI Assistant",
+        "description": "deepXpert AI Assistant helps you build Knowledgenet rules",
         "isSticky": true
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "knowledgexpert AI Assistant",
+      "title": "knowledgeXpert AI Assistant",
       "properties": {
-        "knowledgexpertAiAssistant.apiUrl": {
+        "knowledgeXpertAiAssistant.apiUrl": {
           "type": "string",
           "default": "http://localhost:9001/ask/knowledgexpert",
-          "description": "The URL of the knowledgexpert AI Assistant backend API."
+          "description": "The URL of the knowledgeXpert AI Assistant backend API."
         },
-        "deepxpertAiAssistant.apiUrl": {
+        "deepXpertAiAssistant.apiUrl": {
           "type": "string",
           "default": "http://localhost:9001/ask/deepxpert",
-          "description": "The URL of the deepxpert AI Assistant backend API."
+          "description": "The URL of the deepXpert AI Assistant backend API."
         }
       }
     }
