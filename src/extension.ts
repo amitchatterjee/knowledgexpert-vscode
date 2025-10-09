@@ -27,14 +27,14 @@ async function handleKnowledgexpertChatRequest(request: any, context: any, strea
     }
 }
 
-async function handleDeepxpertChatRequest(request: any, context: any, stream: any, token: any) {
+async function handleKnowledgeTeamChatRequest(request: any, context: any, stream: any, token: any) {
     //console.log('Received chat request:', request);
     const fetch = (await import('node-fetch')).default;
     const sessionId = vscode.env.machineId;
     const userMessage = request.prompt;
     try {
         // Use VS Code configuration for the API URL
-        const apiUrl = vscode.workspace.getConfiguration().get<string>('deepXpertAiAssistant.apiUrl', 'http://localhost:9001/ask/deepxpert');
+        const apiUrl = vscode.workspace.getConfiguration().get<string>('knowledgeTeamAiAssistant.apiUrl', 'http://localhost:9001/ask/knowledgeteam');
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -47,7 +47,7 @@ async function handleDeepxpertChatRequest(request: any, context: any, stream: an
         );
     } catch (err) {
         stream.markdown(
-            'Error contacting deepXpert AI Assistant: ' + (err instanceof Error ? err.message : String(err))
+            'Error contacting KnowledgeTeam AI Assistant: ' + (err instanceof Error ? err.message : String(err))
         );
     }
 }
@@ -64,12 +64,12 @@ export function activate(context: vscode.ExtensionContext) {
         );
         context.subscriptions.push(knowledgexpertParticipantDisposable);
 
-        console.log('Activating deepXpert AI Assistant Chat extension...');
-        const deepxpertParticipantDisposable = (vscode as any).chat.createChatParticipant(
-            "deepXpert-vscode.chat", // Must match id in package.json
-            handleDeepxpertChatRequest
+        console.log('Activating KnowledgeTeam AI Assistant Chat extension...');
+        const knowledgeTeamParticipantDisposable = (vscode as any).chat.createChatParticipant(
+            "knowledgeTeam-vscode.chat", // Must match id in package.json
+            handleKnowledgeTeamChatRequest
         );
-        context.subscriptions.push(deepxpertParticipantDisposable);
+        context.subscriptions.push(knowledgeTeamParticipantDisposable);
     }
 }
 

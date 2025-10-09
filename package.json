@@ -23,10 +23,10 @@
         "isSticky": true
       },
       {
-        "id": "deepXpert-vscode.chat",
-        "name": "deepXpert",
-        "fullName": "deepXpert AI Assistant",
-        "description": "deepXpert AI Assistant helps you build Knowledgenet rules",
+        "id": "knowledgeTeam-vscode.chat",
+        "name": "knowledgeTeam",
+        "fullName": "KnowledgeTeam AI Assistant",
+        "description": "KnowledgeTeam AI Assistant helps you build Knowledgenet rules",
         "isSticky": true
       }
     ],
@@ -39,10 +39,10 @@
           "default": "http://localhost:9001/ask/knowledgexpert",
           "description": "The URL of the knowledgeXpert AI Assistant backend API."
         },
-        "deepXpertAiAssistant.apiUrl": {
+        "knowledgeTeamAiAssistant.apiUrl": {
           "type": "string",
-          "default": "http://localhost:9001/ask/deepxpert",
-          "description": "The URL of the deepXpert AI Assistant backend API."
+          "default": "http://localhost:9001/ask/knowledgeteam",
+          "description": "The URL of the team AI Assistant backend API."
         }
       }
     }
