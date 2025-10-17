@@ -23,10 +23,10 @@
         "isSticky": true
       },
       {
-        "id": "knowledgeTeam-vscode.chat",
-        "name": "knowledgeTeam",
-        "fullName": "KnowledgeTeam AI Assistant",
-        "description": "KnowledgeTeam AI Assistant helps you build Knowledgenet rules",
+        "id": "Wolfpack-vscode.chat",
+        "name": "Wolfpack",
+        "fullName": "Wolfpack AI Assistant",
+        "description": "Wolfpack AI Assistant helps you build Knowledgenet rules",
         "isSticky": true
       }
     ],
@@ -39,10 +39,10 @@
           "default": "http://localhost:9001/ask/knowledgexpert",
           "description": "The URL of the knowledgeXpert AI Assistant backend API."
         },
-        "knowledgeTeamAiAssistant.apiUrl": {
+        "wolfpackAiAssistant.apiUrl": {
           "type": "string",
-          "default": "http://localhost:9001/ask/knowledgeteam",
-          "description": "The URL of the team AI Assistant backend API."
+          "default": "http://localhost:9001/ask/wolfpack",
+          "description": "The URL of the Wolfpack AI Assistant backend API."
         }
       }
     }

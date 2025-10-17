@@ -27,14 +27,14 @@ async function handleKnowledgexpertChatRequest(request: any, context: any, strea
     }
 }
 
-async function handleKnowledgeTeamChatRequest(request: any, context: any, stream: any, token: any) {
+async function handleWolfpackChatRequest(request: any, context: any, stream: any, token: any) {
     //console.log('Received chat request:', request);
     const fetch = (await import('node-fetch')).default;
     const sessionId = vscode.env.machineId;
     const userMessage = request.prompt;
     try {
         // Use VS Code configuration for the API URL
-        const apiUrl = vscode.workspace.getConfiguration().get<string>('knowledgeTeamAiAssistant.apiUrl', 'http://localhost:9001/ask/knowledgeteam');
+        const apiUrl = vscode.workspace.getConfiguration().get<string>('wolfpackAiAssistant.apiUrl', 'http://localhost:9001/ask/wolfpack');
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -47,7 +47,7 @@ async function handleKnowledgeTeamChatRequest(request: any, context: any, stream
         );
     } catch (err) {
         stream.markdown(
-            'Error contacting KnowledgeTeam AI Assistant: ' + (err instanceof Error ? err.message : String(err))
+            'Error contacting Wolfpack AI Assistant: ' + (err instanceof Error ? err.message : String(err))
         );
     }
 }
@@ -64,12 +64,12 @@ export function activate(context: vscode.ExtensionContext) {
         );
         context.subscriptions.push(knowledgexpertParticipantDisposable);
 
-        console.log('Activating KnowledgeTeam AI Assistant Chat extension...');
-        const knowledgeTeamParticipantDisposable = (vscode as any).chat.createChatParticipant(
-            "knowledgeTeam-vscode.chat", // Must match id in package.json
-            handleKnowledgeTeamChatRequest
+        console.log('Activating Woldfpack AI Assistant Chat extension...');
+        const wolfpackParticipantDisposable = (vscode as any).chat.createChatParticipant(
+            "Wolfpack-vscode.chat", // Must match id in package.json
+            handleWolfpackChatRequest
         );
-        context.subscriptions.push(knowledgeTeamParticipantDisposable);
+        context.subscriptions.push(wolfpackParticipantDisposable);
     }
 }
 
