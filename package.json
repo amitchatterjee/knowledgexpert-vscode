@@ -16,13 +16,6 @@
   "contributes": {
     "chatParticipants": [
       {
-        "id": "knowledgeXpert-vscode.chat",
-        "name": "knowledgeXpert",
-        "fullName": "knowledgeXpert AI Assistant",
-        "description": "knowledgeXpert AI Assistant helps you build Knowledgenet rules",
-        "isSticky": true
-      },
-      {
         "id": "Wolfpack-vscode.chat",
         "name": "Wolfpack",
         "fullName": "Wolfpack AI Assistant",
@@ -34,11 +27,6 @@
       "type": "object",
       "title": "knowledgeXpert AI Assistant",
       "properties": {
-        "knowledgeXpertAiAssistant.apiUrl": {
-          "type": "string",
-          "default": "http://localhost:9001/ask/knowledgexpert",
-          "description": "The URL of the knowledgeXpert AI Assistant backend API."
-        },
         "wolfpackAiAssistant.apiUrl": {
           "type": "string",
           "default": "http://localhost:9001/ask/wolfpack",
